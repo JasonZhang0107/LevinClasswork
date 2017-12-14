@@ -1,14 +1,17 @@
 package Lab4One;
 
-public class Lab4One
+public class Cards
 {
-	
 	private String rank;
 	private String suit;
 	private int pointValue;
 
+	public static void main(String args[] )
+	{
+		
+	}
 	//constructor
-	public Lab4One(String rank, String suit, int pointValue)
+	public Cards(String rank, String suit, int pointValue)
 	{
 		this.rank = rank;
 		this.suit = suit;
@@ -27,7 +30,13 @@ public class Lab4One
 	{
 		return pointValue;
 	}
-	public boolean equals()
+	//Check if this card equals another in value
+	public boolean equals(Card otherCard)
+	{
+		
+	}
+	//return an appropriate string for this card
+	public String toString()
 	{
 		
 	}
