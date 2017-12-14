@@ -1,4 +1,4 @@
-package Labs;
+package Lab3Three;
 
 public class Lab3Three
 {
