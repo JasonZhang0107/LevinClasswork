@@ -8,6 +8,11 @@ public class Cards
 
 	public static void main(String args[] )
 	{
+		//test code for creating a king of spades
+		/*
+		Cards example = new Cards("King", "Spades", 13);
+		System.out.println(example.toString());*/
+		
 		
 	}
 	//constructor
@@ -31,13 +36,19 @@ public class Cards
 		return pointValue;
 	}
 	//Check if this card equals another in value
-	public boolean equals(Card otherCard)
+	public boolean equals(Cards otherCard)
 	{
-		
+		if((this.rank.equals(otherCard.rank)) && (this.suit.equals(otherCard.suit)) && (this.pointValue == otherCard.pointValue))
+		{
+			return true;
+		}
+		return false;
 	}
 	//return an appropriate string for this card
 	public String toString()
 	{
+		String cardString = "This card has rank " +this.rank+ " with a suit of " +this.suit+ " and a point value of " +this.pointValue;
 		
+		return cardString;
 	}
 }
