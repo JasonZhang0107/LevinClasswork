@@ -6,15 +6,6 @@ public class Cards
 	private String suit;
 	private int pointValue;
 
-	public static void main(String args[] )
-	{
-		//test code for creating a king of spades
-		/*
-		Cards example = new Cards("King", "Spades", 13);
-		System.out.println(example.toString());*/
-		
-		
-	}
 	//constructor
 	public Cards(String rank, String suit, int pointValue)
 	{
@@ -47,7 +38,7 @@ public class Cards
 	//return an appropriate string for this card
 	public String toString()
 	{
-		String cardString = "This card has rank " +this.rank+ " with a suit of " +this.suit+ " and a point value of " +this.pointValue;
+		String cardString = " has rank " +this.rank+ " with a suit of " +this.suit+ " and a point value of " +this.pointValue;
 		
 		return cardString;
 	}
