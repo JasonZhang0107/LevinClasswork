@@ -28,10 +28,13 @@ public class CSVUtilities
 			
 			while(line != null)
 			{
-				String[] attributes = line.split(" , ");
+				String[] attributes = line.split(",");
 				this.numColumns = attributes.length;
 				
-				CSVData.add(line);
+				for(String x : attributes)
+				{
+					CSVData.add(x);
+				}
 				
 				line = br.readLine();
 			}
@@ -57,7 +60,7 @@ public class CSVUtilities
 	{
 		ArrayList<String> columnData = new ArrayList<String>();
 		
-		for(int i=0; i<this.CSVData.size(); i = i + numColumns)
+		for(int i=column; i<this.CSVData.size(); i = i + numColumns)
 		{
 			columnData.add(this.CSVData.get(i));
 		}
@@ -68,7 +71,7 @@ public class CSVUtilities
 	{
 		ArrayList<Integer> columnDataInteger = new ArrayList<Integer>();
 		
-		for(int i=0; i<this.CSVData.size(); i = i + numColumns)
+		for(int i=column; i<this.CSVData.size(); i = i + this.numColumns)
 		{
 			columnDataInteger.add(Integer.parseInt(this.CSVData.get(i)));
 		}
@@ -79,7 +82,7 @@ public class CSVUtilities
 	{
 		ArrayList<Double> columnDataDouble = new ArrayList<Double>();
 		
-		for(int i=0; i<this.CSVData.size(); i = i + numColumns)
+		for(int i=column; i<this.CSVData.size(); i = i + this.numColumns)
 		{
 			columnDataDouble.add(Double.parseDouble(this.CSVData.get(i)));
 		}

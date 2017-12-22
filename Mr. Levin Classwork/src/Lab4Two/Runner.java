@@ -16,12 +16,23 @@ public class Runner
 		File CSV = new File("LeadingCausesOfDeath.csv");
 		CSVUtilities info =  new CSVUtilities(CSV); 
 		
+		//getColumnHeaders test code
+		/*
 		ArrayList<String> data = new ArrayList<String>();
 		data = (ArrayList<String>) info.getColumnHeaders();
 		
 		for(int i=0; i<data.size(); i++)
 		{
-			System.out.println("Header " + i + ": " + data.get(i));
+			System.out.println("Header " + (i + 1)  + ": " + data.get(i));
+		}
+		*/
+		
+		ArrayList<String> data = new ArrayList<String>();
+		data = (ArrayList<String>) info.getColumnData(1);
+		
+		for(int i=0; i<data.size(); i++)
+		{
+			System.out.println("Row " + (i + 1)  + ": " + data.get(i));
 		}
 	}
 
