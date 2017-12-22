@@ -25,17 +25,20 @@ public class CSVUtilities
 		try(BufferedReader br = Files.newBufferedReader(pathToFile))
 		{
 			String line = br.readLine();
+			String[] attributes2 = line.split(",");
+			this.numColumns = attributes2.length;
 			
 			while(line != null)
 			{
 				String[] attributes = line.split(",");
-				this.numColumns = attributes.length;
 				
-				for(String x : attributes)
+				if(attributes.length == this.numColumns)
 				{
-					CSVData.add(x);
+					for(String x : attributes)
+					{
+						CSVData.add(x);
+					}
 				}
-				
 				line = br.readLine();
 			}
 		}
