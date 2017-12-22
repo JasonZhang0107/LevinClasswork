@@ -3,7 +3,6 @@ package Lab4Two;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,11 +18,11 @@ public class CSVUtilities
 	
 	public CSVUtilities(File CSV)
 	{
-		Path pathToFile = Paths.get(CSV);
+		Path pathToFile = Paths.get(CSV.getAbsolutePath());
 		this.CSVData = new ArrayList<String>();
 		this.numColumns = 0;
 		
-		try(BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII))
+		try(BufferedReader br = Files.newBufferedReader(pathToFile))
 		{
 			String line = br.readLine();
 			
@@ -47,13 +46,13 @@ public class CSVUtilities
 	{
 		ArrayList<String> columnHeaders = new ArrayList<String>();
 		
-		for(int i=0; i<this.CSVData.size(); i++)
+		for(int i=0; i<this.numColumns; i++)
 		{
 			columnHeaders.add(this.CSVData.get(i));
 		}
 		return columnHeaders;
 	}
-	//Return an ArrayList with the data for a column specified
+	//Return an ArrayList with the data in a String
 	public List<String> getColumnData(int column)
 	{
 		ArrayList<String> columnData = new ArrayList<String>();
@@ -67,8 +66,23 @@ public class CSVUtilities
 	//Return an ArrayList with the data converted to Integer
 	public List<Integer> getIntegerData(int column)
 	{
-		ArrayList<String> columnData = new ArrayList<String>();
+		ArrayList<Integer> columnDataInteger = new ArrayList<Integer>();
 		
-		for(int i=0; i<this.CSVData. )
+		for(int i=0; i<this.CSVData.size(); i = i + numColumns)
+		{
+			columnDataInteger.add(Integer.parseInt(this.CSVData.get(i)));
+		}
+		return columnDataInteger;
+	}
+	//Return an ArrayList with the data converted to Double
+	public List<Double> getDoubleData(int column)
+	{
+		ArrayList<Double> columnDataDouble = new ArrayList<Double>();
+		
+		for(int i=0; i<this.CSVData.size(); i = i + numColumns)
+		{
+			columnDataDouble.add(Double.parseDouble(this.CSVData.get(i)));
+		}
+		return columnDataDouble;
 	}
 }
