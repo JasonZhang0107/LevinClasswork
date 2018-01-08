@@ -2,7 +2,9 @@ package Lab4Two;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -90,5 +92,23 @@ public class CSVUtilities
 			columnDataDouble.add(Double.parseDouble(this.CSVData.get(i)));
 		}
 		return columnDataDouble;
+	}
+	public void writeToCSV(String name, String score)
+	{
+		PrintWriter pw = null;
+		
+		try
+		{
+			pw = new PrintWriter(new File("results.csv"));
+		}
+		catch(FileNotFoundException e)
+		{
+			System.err.println(e);
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append("Name,High Score\n");
+		sb.append(name +","+ score +"\n");
+		pw.write(sb.toString());
+		pw.close();
 	}
 }
