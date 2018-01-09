@@ -99,14 +99,26 @@ public class CSVUtilities
 		
 		try
 		{
-			pw = new PrintWriter(new File("results.csv"));
+			pw = new PrintWriter(new File("result.csv"));
 		}
 		catch(FileNotFoundException e)
 		{
 			System.err.println(e);
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append("Name,High Score\n");
+		sb.append("Name,High Score");
+		for(int i = 0; i<this.CSVData.size(); i = i + 1)
+		{
+			if(i % this.numColumns == 0)
+			{
+				sb.append(this.CSVData.get(i) + "\n");
+			}
+			else
+			{
+				sb.append(this.CSVData.get(i) + ",");
+			}
+			System.out.println(this.CSVData.size());
+		}
 		sb.append(name +","+ score +"\n");
 		pw.write(sb.toString());
 		pw.close();

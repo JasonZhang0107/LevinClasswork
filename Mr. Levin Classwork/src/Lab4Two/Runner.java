@@ -13,8 +13,10 @@ public class Runner
 {
 	public static void main(String[] args)
 	{
-		File CSV = new File("LeadingCausesOfDeath.csv");
-		CSVUtilities info =  new CSVUtilities(CSV); 
+		File CSV = new File("keepScore.csv");
+		CSVUtilities info =  new CSVUtilities(CSV);
+		
+		info.writeToCSV("Est", "100");
 		
 		//getColumnHeaders test code
 		/*
@@ -27,6 +29,8 @@ public class Runner
 		}
 		*/
 		
+		//get column data test code
+		/*
 		ArrayList<String> data = new ArrayList<String>();
 		data = (ArrayList<String>) info.getColumnData(1);
 		
@@ -34,6 +38,7 @@ public class Runner
 		{
 			System.out.println("Row " + (i + 1)  + ": " + data.get(i));
 		}
+		*/
 	}
 
 }
