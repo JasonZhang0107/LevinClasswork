@@ -16,7 +16,7 @@ public class Runner
 		File CSV = new File("keepScore.csv");
 		CSVUtilities info =  new CSVUtilities(CSV);
 		
-		info.writeToCSV("Est", "100");
+		info.writeToCSV("Levi","39");
 		
 		//getColumnHeaders test code
 		/*
